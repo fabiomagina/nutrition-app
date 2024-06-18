@@ -1,1 +1,1 @@
-export const URL_BASE = "https://nutrition-nm8f7yshh-fabiomaginas-projects.vercel.app";
+export const URL_BASE = "https://nutrition-app-git-main-fabiomaginas-projects.vercel.app";
