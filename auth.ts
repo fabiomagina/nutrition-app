@@ -1,9 +1,11 @@
 import NextAuth from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 
-import { getUserById } from "@/data/user"
+import { getUserByEmail, getUserById } from "@/data/user"
 import { db } from "@/lib/db"
 import authConfig from "@/auth.config"
+
+
 
 export const {
   handlers: { GET, POST },
@@ -38,7 +40,7 @@ export const {
 
     async jwt({ token }) {
       if (!token.sub) return token
-      const existingUser = await getUserById(token.sub)
+      const existingUser = await getUserByEmail(token.email!)
 
       if (!existingUser) return token;
 
