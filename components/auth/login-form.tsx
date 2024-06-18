@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 
-import { Suspense, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -106,7 +106,7 @@ export const LoginForm = () => {
 							)}
 						/>
 					</div>
-					<Suspense><FormError message={error || urlError} /></Suspense>
+					<FormError message={error || urlError} />
 					<FormSuccess message={success} />
 					<Button
 						disabled={isPending}
