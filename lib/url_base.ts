@@ -1,0 +1,1 @@
+export const URL_BASE = "https://nutrition-nm8f7yshh-fabiomaginas-projects.vercel.app";

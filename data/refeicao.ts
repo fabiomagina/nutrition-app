@@ -2,6 +2,7 @@
 
 import { auth } from "@/auth";
 import { db } from "@/lib/db";
+import { URL_BASE } from "@/lib/url_base";
 import axios from 'axios';
 
 export const getRefeicoesByUser = async () => {
@@ -12,7 +13,7 @@ export const getRefeicoesByUser = async () => {
     const userId = session.user.id;
 
     try {
-        const response = await axios.post('http://localhost:3000/api/busca-refeicoes', {
+        const response = await axios.post(`${URL_BASE}/api/busca-refeicoes`, {
             userId
         })
 
@@ -47,7 +48,7 @@ export const createRefeicao = async ({ descricao = "", nome, disponivel = true }
     const userId = session.user.id;
 
     try {
-        axios.post('http://localhost:3000/api/cria-refeicao', {
+        axios.post(`${URL_BASE}/api/cria-refeicao`, {
             nome,
             descricao,
             disponivel,
@@ -77,7 +78,7 @@ export const insereAlimento = async ({ refeicaoId, userId, alimentos }: InsereAl
     const sessionUserId = session.user.id;
 
     try {
-        axios.post('http://localhost:3000/api/insere-alimento', {
+        axios.post(`${URL_BASE}/api/insere-alimento`, {
             refeicaoId,
             alimentos,
             userId: sessionUserId
