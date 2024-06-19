@@ -7,11 +7,13 @@ import BuscaAlimento from '../BuscaAlimento';
 import useSalvaAlimento from '@/hooks/useSalvaAlimento.tsx';
 import Input from '@/components/ui/Input';
 import Botao from '@/components/ui/Botao';
+import { useRouter } from 'next/navigation';
 
 export default function AdicionarAlimento({ refeicaoId }: { refeicaoId: string }) {
     const [isOpen, setIsOpen] = useState(false);
     const { alimentoAtual, setAlimentoAtual } = useContext(AlimentoContext);
     const salvaAlimento = useSalvaAlimento()
+    const router = useRouter()
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
@@ -60,6 +62,7 @@ export default function AdicionarAlimento({ refeicaoId }: { refeicaoId: string }
                     <Botao onClick={() => {
                         salvaAlimento(refeicaoId)
                         toggleModal()
+                        router.push('/')
                     }} texto='Salvar' />
                 </div>
             </div>

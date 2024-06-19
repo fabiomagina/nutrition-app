@@ -4,10 +4,12 @@ import Input from '@/components/ui/Input';
 import Botao from '@/components/ui/Botao';
 import { auth } from '@/auth';
 import { createRefeicao } from '@/data/refeicao';
+import { useRouter } from 'next/navigation';
 
 export default function AdicionarRefeicao() {
     const [isOpen, setIsOpen] = useState(false);
     const [nomeRefeicao, setNomeRefeicao] = useState('')
+    const router = useRouter()
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
@@ -51,6 +53,7 @@ export default function AdicionarRefeicao() {
                             .then(() => {
                                 setNomeRefeicao('')
                                 toggleModal()
+                                router.push('/')
                             })
                         toggleModal()
                     }} texto='Criar refeição' />

@@ -54,7 +54,7 @@ export const createRefeicao = async ({ descricao = "", nome, disponivel = true }
             disponivel,
             userId
         })
-            .then(console.log)
+            .then(() => console.log('Refeição criada com sucesso!'))
 
 
     } catch (error) {
@@ -82,7 +82,7 @@ export const insereAlimento = async ({ refeicaoId, userId, alimentos }: InsereAl
             refeicaoId,
             alimentos,
             userId: sessionUserId
-        }).then(console.log)
+        }).then(() => console.log('Alimento inserido com sucesso!'))
 
             
     } catch (error) {

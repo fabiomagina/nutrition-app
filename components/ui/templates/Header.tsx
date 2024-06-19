@@ -39,7 +39,7 @@ export default function Header(
     const renderAvatar = () => {
         if (type === 'primary') {
             return <img src={userImage} alt="User profile picture"
-                className="rounded-full h-[4rem] w-[4rem]" />
+                className="rounded-full h-[4rem] w-[4rem] cursor-pointer" onClick={() => router.push('/perfil')} />
         }
     }
     return (
